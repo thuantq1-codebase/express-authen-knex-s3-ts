@@ -1,0 +1,54 @@
+version: '3'
+services:
+  app:
+    build:
+      context: ../
+      dockerfile: docker/app/Dockerfile
+    image: ${PROJECT_NAME}-app
+    restart: unless-stopped
+    container_name: ${PROJECT_NAME}-app
+    ports:
+      - '${PRE_PORT}4000:4000'
+    networks:
+      - my-network
+    volumes:
+      - ../:/usr/src/app
+      - /usr/src/app/node_modules
+  postgresql:
+    image: 'postgres:9.6.17'
+    container_name: ${PROJECT_NAME}-database
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - '${PRE_PORT}5432:5432'
+    networks:
+      - my-network
+    volumes:
+      - my-pgdata:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: ${PROJECT_NAME}-pgadmin
+    depends_on:
+      - postgresql
+    ports:
+      - '${PRE_PORT}5555:80'
+    networks:
+      - my-network
+    volumes:
+      - my-pgadmin:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    restart: unless-stopped
+volumes:
+  my-pgdata:
+    name: ${PROJECT_NAME}-pgdata
+  my-pgadmin:
+    name: ${PROJECT_NAME}-pgadmin
+networks:
+  my-network:
+    name: ${PROJECT_NAME}-network
+    driver: bridge
