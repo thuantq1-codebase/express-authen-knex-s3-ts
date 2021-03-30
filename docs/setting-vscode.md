@@ -1,17 +1,17 @@
-# Prerequisite
- - Install Vscode
- - Install nodejs
+# Setting Vscode for development
 
-# Install plugin Vscode
- - Editorconfig
- - Prettier
- - shell-format
+## Prerequisite
 
-# Coding rule
- - When import using @path instead of dot
- - Define datatype for function and variable
+- Install Vscode
 
-# Vscode setting
+## Install plugin Vscode
+
+- Editorconfig
+- Prettier
+- shell-format
+
+## Vscode setting
+
 ```bash
 {
   // Start ruler

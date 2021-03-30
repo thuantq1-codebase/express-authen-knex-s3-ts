@@ -16,7 +16,7 @@ Execute following command to run migration.
 
 ```bash
 cd /path/to/project
-npm run knex migrate:latest
+env=[development|test|production] npm run knex migrate:latest
 ```
 
 ### Rollback
@@ -25,7 +25,7 @@ Execute following command to rollback the recent migration
 
 ```bash
 cd /path/to/project
-npm run knex migrate:rollback
+env=[development|test|production] npm run knex migrate:rollback
 ```
 
 ### Generate migration files
@@ -36,15 +36,15 @@ To create migration files and/or seeds files, you can run a single command.
 cd /path/to/project
 
 ## Create schema file
-npm run knex migrate:make ${fileName} -x ts
+env=[development|test|production] npm run knex migrate:make ${fileName} -x ts
 
 ## Create seed file
-npm run knex seed:make ${fileName} -x ts
+env=[development|test|production] npm run knex seed:make ${fileName} -x ts
 ```
 
 ### Apply seeds locally
 
 ```bash
 cd /path/to/project
-npm run knex seed:run
+env=[development|test|production] npm run knex seed:run
 ```
