@@ -6,6 +6,7 @@ There are two methods to start project with development.
 
 ### Prerequisite
 
+- Install aws-cli
 - [Install docker](./docs/install-docker.md)
 
 ### Setup aws credentials
