@@ -6,6 +6,8 @@ There are two methods to start project with development.
 
 ### Prerequisite
 
+Install following dependencies beforehand.
+
 - Install aws-cli
 - [Install docker](./docs/install-docker.md)
 
@@ -24,11 +26,13 @@ cd docker
 
 Go [http://localhost:15555](http://localhost:15555) to open pgadmin. The login email is `admin@com.vn` and the password is `admin`.
 
-Go [http://localhost:14000](http://localhost:14000) to accessing api.
+Go [http://localhost:14000](http://localhost:14000) to open api.
 
 ## Start with local
 
 ### Prerequisite
+
+Install following dependencies beforehand.
 
 - Install aws-cli
 - Install nodejs
@@ -45,7 +49,7 @@ aws configure
 npm run start:dev
 ```
 
-Go [http://localhost:4000](http://localhost:4000) to accessing api.
+Go [http://localhost:4000](http://localhost:4000) to open api.
 
 ## Limit of project
 
