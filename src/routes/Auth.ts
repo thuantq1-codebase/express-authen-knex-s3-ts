@@ -9,6 +9,8 @@ import {
   loginFailedErr,
   cookieProps,
 } from '@shared/constants'
+import { validationMW } from '@routes/middleware'
+import * as yup from 'yup'
 
 const router = Router()
 const userDao = new UserDao()
@@ -22,33 +24,39 @@ interface IRequest extends Request {
   }
 }
 
-router.post('/login', async (req: IRequest, res: Response) => {
-  const { email, password } = req.body
-  if (!(email && password)) {
-    return res.status(BAD_REQUEST).json({
-      error: paramMissingError,
+router.post(
+  '/login',
+  validationMW({
+    password: yup.string().min(6),
+  }),
+  async (req: IRequest, res: Response) => {
+    const { email, password } = req.body
+    if (!(email && password)) {
+      return res.status(BAD_REQUEST).json({
+        error: paramMissingError,
+      })
+    }
+    const user = await userDao.getOne(email)
+    if (!user) {
+      return res.status(UNAUTHORIZED).json({
+        error: loginFailedErr,
+      })
+    }
+    const pwdPassed = await bcrypt.compare(password, user.pwdHash)
+    if (!pwdPassed) {
+      return res.status(UNAUTHORIZED).json({
+        error: loginFailedErr,
+      })
+    }
+    const jwt = await jwtService.getJwt({
+      id: user.id,
+      role: user.role,
     })
-  }
-  const user = await userDao.getOne(email)
-  if (!user) {
-    return res.status(UNAUTHORIZED).json({
-      error: loginFailedErr,
-    })
-  }
-  const pwdPassed = await bcrypt.compare(password, user.pwdHash)
-  if (!pwdPassed) {
-    return res.status(UNAUTHORIZED).json({
-      error: loginFailedErr,
-    })
-  }
-  const jwt = await jwtService.getJwt({
-    id: user.id,
-    role: user.role,
-  })
-  const { key, options } = cookieProps
-  res.cookie(key, jwt, options)
-  return res.status(OK).end()
-})
+    const { key, options } = cookieProps
+    res.cookie(key, jwt, options)
+    return res.status(OK).end()
+  },
+)
 
 router.get('/logout', (req: Request, res: Response) => {
   const { key, options } = cookieProps

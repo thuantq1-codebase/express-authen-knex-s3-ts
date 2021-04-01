@@ -79,7 +79,8 @@
     "module-alias": "^2.2.2",
     "morgan": "^1.10.0",
     "pg": "^8.5.1",
-    "randomstring": "^1.1.5"
+    "randomstring": "^1.1.5",
+    "yup": "^0.32.9"
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
