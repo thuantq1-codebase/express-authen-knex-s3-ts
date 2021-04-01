@@ -19,12 +19,11 @@ app.use(cookieParser(cookieProps.secret))
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
-  app.use(cors({
-    credentials: true,
-    origin: [
-      'http://localhost:3000'
-    ]
-  }))
+  const originPorts = process.env.ORIGIN_PORT?.split(',')
+  const origin = originPorts?.map(
+    (originPort) => `http://localhost:${originPort}`,
+  )
+  app.use(cors({ credentials: true, origin }))
 }
 
 if (process.env.NODE_ENV === 'production') {
