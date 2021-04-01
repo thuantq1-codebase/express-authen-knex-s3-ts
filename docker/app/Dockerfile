@@ -1,4 +1,4 @@
-FROM amazonlinux:2
+FROM amazonlinux:2 as localbuilder
 
 RUN yum update -y \
   && curl -sL https://rpm.nodesource.com/setup_12.x | bash \
