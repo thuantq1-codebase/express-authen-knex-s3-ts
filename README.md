@@ -21,7 +21,7 @@ aws configure
 
 ```bash
 cd docker
-./start-container.sh
+./start-app.sh
 ```
 
 Go [http://localhost:15555](http://localhost:15555) to open pgadmin. The login email is `admin@com.vn` and the password is `admin`.
@@ -35,6 +35,7 @@ Go [http://localhost:14000](http://localhost:14000) to open api.
 Install following dependencies beforehand.
 
 - Install aws-cli
+- [Install docker](./docs/install-docker.md)
 - Install nodejs
 
 ### Setup aws credentials
@@ -46,6 +47,8 @@ aws configure
 ### Start project
 
 ```bash
+cd docker
+./start-tools.sh
 npm run start:dev
 ```
 
