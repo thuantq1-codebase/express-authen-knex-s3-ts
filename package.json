@@ -61,6 +61,8 @@
     "build.ts"
   ],
   "dependencies": {
+    "@sentry/node": "^6.2.5",
+    "@sentry/tracing": "^6.2.5",
     "@types/cors": "^2.8.10",
     "aws-sdk": "^2.872.0",
     "bcrypt": "^5.0.1",
