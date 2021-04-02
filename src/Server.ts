@@ -21,15 +21,18 @@ app.use(cookieParser(cookieProps.secret))
 
 if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'))
-  const originPorts = process.env.ORIGIN_PORT?.split(',')
-  const origin = originPorts?.map(
-    (originPort) => `http://localhost:${originPort}`,
-  )
-  app.use(cors({ credentials: true, origin }))
 }
 
 if (process.env.NODE_ENV === 'production') {
   app.use(helmet())
+}
+
+if (process.env.CORS_ORIGIN_PORT) {
+  const originPorts = process.env.CORS_ORIGIN_PORT.split(',')
+  const origin = originPorts?.map(
+    (originPort) => `http://localhost:${originPort}`,
+  )
+  app.use(cors({ credentials: true, origin }))
 }
 
 if (process.env.SENTRY_DNS) {
