@@ -5,6 +5,8 @@ import StatusCodes from 'http-status-codes'
 import express, { NextFunction, Request, Response } from 'express'
 import cors from 'cors'
 import 'express-async-errors'
+import * as Sentry from '@sentry/node'
+import * as Tracing from '@sentry/tracing'
 
 import BaseRouter from './routes'
 import logger from '@shared/Logger'
@@ -30,10 +32,24 @@ if (process.env.NODE_ENV === 'production') {
   app.use(helmet())
 }
 
+if (process.env.SENTRY_DNS) {
+  Sentry.init({
+    dsn: process.env.SENTRY_DNS,
+    integrations: [
+      new Sentry.Integrations.Http({ tracing: true }),
+      new Tracing.Integrations.Express({ app }),
+    ],
+    tracesSampleRate: 1.0,
+  })
+  app.use(Sentry.Handlers.requestHandler())
+  app.use(Sentry.Handlers.tracingHandler())
+}
+
 app.use('/api', BaseRouter)
 
-// Print API errors
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+if (process.env.SENTRY_DNS) {
+  app.use(Sentry.Handlers.errorHandler())
+}
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   logger.err(err, true)
   return res.status(BAD_REQUEST).json({
