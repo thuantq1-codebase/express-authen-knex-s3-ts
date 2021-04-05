@@ -27,3 +27,4 @@ coverage
 benchmarks/graphs
 
 docker/.localstack
+.husky

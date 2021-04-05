@@ -7,7 +7,8 @@
     "start": "node -r module-alias/register ./dist --env=production",
     "start:dev": "nodemon",
     "test": "nodemon --config ./spec/nodemon.json",
-    "knex": "./node_modules/.bin/knex"
+    "knex": "./node_modules/.bin/knex",
+    "prepare": "husky install"
   },
   "nodemonConfig": {
     "watch": [
@@ -103,7 +104,7 @@
     "eslint": "^7.22.0",
     "find": "^0.3.0",
     "fs-extra": "^9.1.0",
-    "husky": "^5.2.0",
+    "husky": "^6.0.0",
     "jasmine": "^3.7.0",
     "lint-staged": "^10.5.4",
     "nodemon": "^2.0.7",
@@ -113,15 +114,12 @@
     "tsconfig-paths": "^3.9.0",
     "typescript": "^4.2.3"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "**/*.{ts,tsx}": [
       "prettier --write",
       "git add"
-    ]
+    ],
+    "*.ts": "eslint --cache --fix",
+    "*.{js,css,md}": "prettier --write"
   }
 }
