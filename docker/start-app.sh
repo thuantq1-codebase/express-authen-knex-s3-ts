@@ -7,4 +7,4 @@ docker-compose \
   -f docker-compose.localapp.yml \
   -f docker-compose.localdb.yml \
   -f docker-compose.localstack.yml \
-  up -d
+  up -d --build
