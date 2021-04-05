@@ -64,7 +64,8 @@
       "@shared/*": ["src/shared/*"],
       "@server": ["src/Server"],
       "@routes/*": ["src/routes/*"]
-    }
+    },
+    "resolveJsonModule": true
   },
   "include": ["src/**/*.ts", "spec/**/*.ts"],
   "exclude": ["src/public/"]
