@@ -21,7 +21,10 @@ aws configure
 
 ### Start project
 
+Open vscode with wsl
+
 ```bash
+git clone ${REPO_URL}
 cd docker
 ./start-app.sh
 ```

@@ -9,6 +9,7 @@
 - Editorconfig
 - Prettier
 - shell-format
+- Remote-WSL
 
 ## Vscode setting
 
