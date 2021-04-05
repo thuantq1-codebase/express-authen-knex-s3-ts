@@ -68,6 +68,7 @@ cd docker
 npm run start:dev
 ```
 
+Go http://localhost:15555 to open pgadmin. The login email is admin@com.vn and the password is admin.
 Go [http://localhost:4000](http://localhost:4000) to open api.
 
 ## Limit of project
