@@ -25,6 +25,10 @@ Open vscode with wsl
 
 ```bash
 git clone ${REPO_URL}
+cd /path/to/project
+npm install
+npx mrm lint-stage
+
 cd docker
 ./start-app.sh
 ```
@@ -54,6 +58,11 @@ aws configure
 ### Start project
 
 ```bash
+git clone ${REPO_URL}
+cd /path/to/project
+npm install
+npx mrm lint-stage
+
 cd docker
 ./start-tools.sh
 npm run start:dev
