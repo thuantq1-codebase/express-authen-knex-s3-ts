@@ -8,6 +8,8 @@ There are two methods to start project with development.
 
 Install following dependencies beforehand.
 
+- [Setup git](./docs/setup-git.md)
+- [Setting vscode](./docs/setting-vscode.md)
 - Install aws-cli
 - [Install docker](./docs/install-docker.md)
 
@@ -34,6 +36,8 @@ Go [http://localhost:14000](http://localhost:14000) to open api.
 
 Install following dependencies beforehand.
 
+- [Setup git](./docs/setup-git.md)
+- [Setting vscode](./docs/setting-vscode.md)
 - Install aws-cli
 - [Install docker](./docs/install-docker.md)
 - Install nodejs
