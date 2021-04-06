@@ -1,4 +1,4 @@
-import('./src/pre-start')
+require('./src/pre-start')
 
 const connection = {
   host: process.env.DB_MASTER_HOST,
@@ -50,9 +50,8 @@ const settings = {
 }
 
 const sharedConfig = {
-  client: 'postgresql',
+  client: 'mysql',
   migrations: {
-    schemaName: 'public',
     tableName: 'knex_migrations',
     extension: 'ts',
     directory: './knex/migrations',
