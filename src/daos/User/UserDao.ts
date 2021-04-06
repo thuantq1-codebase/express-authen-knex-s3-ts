@@ -10,10 +10,6 @@ export interface IUserDao {
 }
 
 class UserDao extends BaseDao<IUser> implements IUserDao {
-  protected getSchema() {
-    return 'public'
-  }
-
   protected getTableName() {
     return 'users'
   }

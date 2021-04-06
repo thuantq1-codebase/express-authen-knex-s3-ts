@@ -6,9 +6,9 @@ interface IBaseDao<T> {
 }
 
 export default abstract class BaseDao<T> implements IBaseDao<T> {
-  protected abstract getSchema(): string
   protected abstract getTableName(): string
+
   getBuilder(): Knex.QueryBuilder<T> {
-    return knex<T>(this.getSchema()).withSchema(this.getSchema())
+    return knex<T>(this.getTableName())
   }
 }
