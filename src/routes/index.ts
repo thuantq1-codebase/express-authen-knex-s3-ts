@@ -8,7 +8,7 @@ import * as swaggerDocument from './../swagger.json'
 
 const router = Router()
 
-router.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+router.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 router.use('/auth', AuthRouter)
 router.use('/users', adminMW, UserRouter)
 router.use('/s3', adminMW, S3Router)
