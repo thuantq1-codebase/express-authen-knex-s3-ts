@@ -36,6 +36,7 @@ Open vscode with wsl
 git clone ${REPO_URL}
 cd /path/to/project
 npm install
+# If lint-stage, husky and prettier was not working, please execute more following command
 npx mrm lint-stage
 
 cd docker
@@ -70,6 +71,7 @@ aws configure
 git clone ${REPO_URL}
 cd /path/to/project
 npm install
+# If lint-stage, husky and prettier was not working, please execute more following command
 npx mrm lint-stage
 
 cd docker
