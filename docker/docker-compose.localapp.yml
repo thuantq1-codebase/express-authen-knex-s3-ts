@@ -14,3 +14,5 @@ services:
     volumes:
       - ../:/usr/src/app
       - /usr/src/app/node_modules
+      - ${HOME}/.aws/credentials:/root/.aws/credentials
+      - ${HOME}/.aws/config:/root/.aws/config
