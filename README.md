@@ -1,4 +1,13 @@
-# Express-Authen-Knex-S3-Ts
+# Codebase for project
+
+Codebase includes some following functions:
+
+- Expressjs
+- Knex
+- Mysql
+- Authentication with JWT
+- Docker
+- Typescript
 
 There are two methods to start project with development.
 
@@ -33,9 +42,9 @@ cd docker
 ./start-app.sh
 ```
 
-Go [http://localhost:15555](http://localhost:15555) to open pgadmin. The login email is `admin@com.vn` and the password is `admin`.
+Go [http://localhost:180](http://localhost:180) to open phpmyadmin.
 
-Go [http://localhost:14000](http://localhost:14000) to open api.
+Go [http://localhost:4000](http://localhost:4000) to open api.
 
 ## Start with local
 
@@ -68,7 +77,7 @@ cd docker
 npm run start:dev
 ```
 
-Go http://localhost:15555 to open pgadmin. The login email is admin@com.vn and the password is admin.
+Go http://localhost:180 to open pgadmin.
 Go [http://localhost:4000](http://localhost:4000) to open api.
 
 ## Limit of project
