@@ -7,6 +7,8 @@ import cors from 'cors'
 import 'express-async-errors'
 import * as Sentry from '@sentry/node'
 import * as Tracing from '@sentry/tracing'
+import swaggerUi from 'swagger-ui-express'
+import * as swaggerDocument from './swagger.json'
 
 import BaseRouter from './routes'
 import logger from '@shared/Logger'
@@ -49,6 +51,7 @@ if (process.env.SENTRY_DNS) {
 }
 
 app.use('/api', BaseRouter)
+app.use('/', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
 if (process.env.SENTRY_DNS) {
   app.use(Sentry.Handlers.errorHandler())
