@@ -1,11 +1,5 @@
 version: '3'
 services:
-  api:
-    build:
-      target: localbuilder
-    volumes:
-      - ${HOME}/.aws/credentials:/root/.aws/credentials
-      - ${HOME}/.aws/config:/root/.aws/config
   localstack:
     image: localstack/localstack
     container_name: ${PROJECT_NAME}-localstack
