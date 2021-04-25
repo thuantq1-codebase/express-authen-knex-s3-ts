@@ -1,4 +1,4 @@
-import('./src/pre-start')
+require('./src/pre-start')
 
 const connection = {
   host: process.env.DB_MASTER_HOST,
