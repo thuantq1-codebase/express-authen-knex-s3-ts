@@ -21,6 +21,7 @@ Install following dependencies beforehand.
 - [Setting vscode](./docs/setting-vscode.md)
 - Install aws-cli
 - [Install docker](./docs/install-docker.md)
+- Install docker-compose >= 1.28.5
 
 ### Setup aws credentials
 
@@ -57,6 +58,7 @@ Install following dependencies beforehand.
 - [Setting vscode](./docs/setting-vscode.md)
 - Install aws-cli
 - [Install docker](./docs/install-docker.md)
+- Install docker-compose >= 1.28.5
 - Install nodejs
 
 ### Setup aws credentials
