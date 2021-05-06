@@ -11,4 +11,4 @@ RUN npm install \
   && cp -a /tmp/node_modules/. /usr/src/app/node_modules
 
 WORKDIR /usr/src/app
-CMD [ "bash", "docker/run.sh" ]
+CMD [ "bash", "docker/test/run.sh" ]

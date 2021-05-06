@@ -32,7 +32,7 @@ if (process.env.NODE_ENV === 'production') {
 if (process.env.CORS_ORIGIN_PORT) {
   const originPorts = process.env.CORS_ORIGIN_PORT.split(',')
   const origin = originPorts?.map(
-    (originPort) => `http://localhost:${originPort}`,
+    (originPort) => `http://${process.env.COOKIE_DOMAIN}:${originPort}`,
   )
   app.use(cors({ credentials: true, origin }))
 }

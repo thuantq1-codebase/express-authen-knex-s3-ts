@@ -21,7 +21,7 @@ services:
     depends_on:
       - db
     ports:
-      - '${DB_PGADMIN_PORT}:80'
+      - '${DB_TOOL_PORT}:80'
     networks:
       - my-network
     restart: unless-stopped
