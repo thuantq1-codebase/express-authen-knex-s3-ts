@@ -27,8 +27,6 @@ Open vscode with wsl
 git clone ${REPO_URL}
 cd /path/to/project
 npm install
-npx mrm lint-stage
-
 cd docker
 ./start-app.sh
 ```
@@ -61,8 +59,6 @@ aws configure
 git clone ${REPO_URL}
 cd /path/to/project
 npm install
-npx mrm lint-stage
-
 cd docker
 ./start-tools.sh
 npm run start:dev
@@ -75,3 +71,9 @@ Go [http://localhost:4000](http://localhost:4000) to open api.
 
 - [Upload file limit 5GB](./docs/s3-service.md).
 - Problem save url to db and upload S3 simulsimultaneously.
+
+## Troubleshooting
+If cannot format code with precommit, please execute the following command.
+```bash
+npx mrm lint-stage
+```
