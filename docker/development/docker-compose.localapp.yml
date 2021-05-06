@@ -3,7 +3,7 @@ services:
   api:
     build:
       context: ../
-      dockerfile: docker/api/Dockerfile
+      dockerfile: docker/development/api/Dockerfile
     image: ${PROJECT_NAME}-api
     restart: unless-stopped
     container_name: ${PROJECT_NAME}-api
