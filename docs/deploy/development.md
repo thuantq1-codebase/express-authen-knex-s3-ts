@@ -83,5 +83,7 @@ Go [http://localhost:4000](http://localhost:4000) to open api.
 If lint-stage, husky and prettier was not working, please execute more following command
 
 ```bash
-npx mrm lint-stage
+npm install mrm mrm-task-lint-staged --save-dev
+npx mrm lint-staged
+npm uninstall mrm mrm-task-lint-staged
 ```
